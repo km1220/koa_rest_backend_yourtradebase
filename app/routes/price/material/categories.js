@@ -43,15 +43,14 @@ router.put('/:id', async (ctx, next) => {
 		ctx.throw(400, 'Please enter data');
 	} else {
 		const result = await CategoryModel.update({ id: ctx.params.id, name });
-		console.log(result)
-		ctx.response.status = 201;
+		ctx.response.status = 200;
 		ctx.body = result;
 	}
 	next();
 });
 router.delete('/:id', async (ctx, next) => {
 	const result = await CategoryModel.remove(ctx.params.id);
-	ctx.response.status = 201;
+	ctx.response.status = 200;
 	ctx.body = result;
 	next();
 });

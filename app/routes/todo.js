@@ -42,14 +42,14 @@ router.put('/:id', async (ctx, next) => {
 			content: ctx.request.body.content,
 			is_done: ctx.request.body.is_done
 		});
-		ctx.response.status = 201;
+		ctx.response.status = 200;
 		ctx.body = result;
 	}
 	next();
 });
 router.delete('/:id', async (ctx, next) => {
 	const result = await TodoModel.remove(ctx.params.id);
-	ctx.response.status = 201;
+	ctx.response.status = 200;
 	ctx.body = result;
 	next();
 });

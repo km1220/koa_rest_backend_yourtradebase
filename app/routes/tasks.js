@@ -41,15 +41,14 @@ router.put('/:id', async (ctx, next) => {
 		const result = await TaskModel.update({
 			id: ctx.params.id, title, desc, due, job_id
 		});
-		console.log(result)
-		ctx.response.status = 201;
+		ctx.response.status = 200;
 		ctx.body = result;
 	}
 	next();
 });
 router.delete('/:id', async (ctx, next) => {
 	const result = await TaskModel.remove(ctx.params.id);
-	ctx.response.status = 201;
+	ctx.response.status = 200;
 	ctx.body = result;
 	next();
 });

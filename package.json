@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "@koa/cors": "^4.0.0",
+    "dotenv": "^16.0.3",
     "koa": "^2.14.1",
     "koa-bodyparser": "^4.3.0",
     "koa-helmet": "^6.1.0",

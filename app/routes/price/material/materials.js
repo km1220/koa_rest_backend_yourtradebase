@@ -43,15 +43,16 @@ router.put('/:id', async (ctx, next) => {
 		ctx.throw(400, 'Please enter data');
 	} else {
 		const result = await MaterialModel.update({ id: ctx.params.id, product_code, title, price, foreach, markup, brand, category_id });
-		console.log(result)
-		ctx.response.status = 201;
+		ctx.response.status = 200;
 		ctx.body = result;
 	}
 	next();
 });
 router.delete('/:id', async (ctx, next) => {
+	console.log(ctx.params);
+
 	const result = await MaterialModel.remove(ctx.params.id);
-	ctx.response.status = 201;
+	ctx.response.status = 200;
 	ctx.body = result;
 	next();
 });

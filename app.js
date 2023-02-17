@@ -5,9 +5,10 @@ import helmet from 'koa-helmet';
 import cors from '@koa/cors';
 
 import AppRoutes from './app/routes/index.js';
+import { config } from './app/config.js';
 
 const app = new Koa();
-const PORT = 1337;
+const PORT = config.port || 1337;
     app.use(helmet());
     app.use(cors());
 	app.use(bodyParser());

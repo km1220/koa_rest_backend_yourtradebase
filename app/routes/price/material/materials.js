@@ -49,8 +49,6 @@ router.put('/:id', async (ctx, next) => {
 	next();
 });
 router.delete('/:id', async (ctx, next) => {
-	console.log(ctx.params);
-
 	const result = await MaterialModel.remove(ctx.params.id);
 	ctx.response.status = 200;
 	ctx.body = result;

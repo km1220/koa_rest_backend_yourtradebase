@@ -1,6 +1,7 @@
 {
   "type": "module",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "lint": "eslint .",
     "start": "nodemon app.js"
   },
@@ -15,5 +16,10 @@
   },
   "devDependencies": {
     "eslint": "^8.33.0"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "./node_modules"
+    ]
   }
 }

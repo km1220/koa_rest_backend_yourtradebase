@@ -18,8 +18,8 @@ export const add = async (quotes) => {
 	const { pricelist_data_list, company_name, building_number, post_code, email, phone } = quotes;
 	return await query(`
 		INSERT INTO quotes (\`pricelist_data_list\`, \`company_name\`, \`building_number\`, \`post_code\`, \`email\`, \`phone\`) 
-		VALUES ('${pricelist_data_list}','${company_name}','${building_number}', '${post_code}', '${email}', '${phone}')
-	`);
+			VALUES ('${pricelist_data_list}','${company_name}','${building_number}', '${post_code}', '${email}', '${phone}')
+		`);
 }
 
 export const update = async (quotes) => {
@@ -28,12 +28,12 @@ export const update = async (quotes) => {
 	if (isTargetExist !== null) {
 		return await query(`
 			UPDATE quotes 
-			SET \`pricelist_data_list\`='${pricelist_data_list}', 
-				\`company_name\`='${company_name}', 
-				\`building_number\`='${building_number}', \`post_code\`='${post_code}', 
-				\`email\`='${email}', \`phone\`='${phone}'
-			WHERE quotes.id=${id}
-		`);
+				SET \`pricelist_data_list\`='${pricelist_data_list}', 
+					\`company_name\`='${company_name}', 
+					\`building_number\`='${building_number}', \`post_code\`='${post_code}', 
+					\`email\`='${email}', \`phone\`='${phone}'
+				WHERE quotes.id=${id}
+			`);
 	} else {
 		return false;
 	}

@@ -9,9 +9,9 @@ import { config } from './app/config.js';
 
 const app = new Koa();
 const PORT = config.port || 1337;
-    app.use(helmet());
-    app.use(cors());
-	app.use(bodyParser());
+app.use(helmet());
+app.use(cors());
+app.use(bodyParser());
 
 // app.use(async (ctx) => {
 //   ctx.body = {

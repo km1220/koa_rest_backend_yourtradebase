@@ -1,5 +1,5 @@
 import Router from 'koa-router';
-import * as CustomerModel from '../models/customers.js';
+import * as CustomerModel from '../../models/customer/customers.js';
 
 const router = new Router({
 	prefix: '/customers'

@@ -6,7 +6,8 @@ import Todo from './todo.js'
 import AuthUser from './auth.js';
 import UserProfiles from './user_profiles.js';
 import Reminders from './reminders.js';
-import Customers from './customers.js';
+import Customers from './customer/customers.js';
+import CExtraInfos from './customer/extra_infos.js';
 import Quotes from './quotes.js';
 import Tasks from './tasks.js';
 import TeamMembers from './team_members.js';
@@ -23,6 +24,7 @@ export default app => {
 	app.use(UserProfiles);
 	app.use(Reminders);
 	app.use(Customers);
+	app.use(CExtraInfos);
 	app.use(Quotes);
 	app.use(Tasks);
 	app.use(TeamMembers);

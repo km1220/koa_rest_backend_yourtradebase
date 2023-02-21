@@ -1,4 +1,4 @@
-import { query } from '../lib/mysqldb.js';
+import { query } from '../../lib/mysqldb.js';
 
 
 export const getAll = async () => {

@@ -1,5 +1,5 @@
 import Router from 'koa-router';
-import * as UserModel from '../models/user_profiles.js';
+import * as UserModel from '../../models/user/user_profiles.js';
 
 const router = new Router({
 	prefix: '/auth'

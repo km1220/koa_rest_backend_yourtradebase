@@ -3,9 +3,9 @@ import Books from './_books.js'
 import Todo from './todo.js'
 //
 
-import AuthUser from './auth.js';
-import UserProfiles from './user_profiles.js';
-import Reminders from './reminders.js';
+import AuthUser from './user/auth.js';
+import UserProfiles from './user/user_profiles.js';
+import Reminders from './user/reminders.js';
 import Customers from './customer/customers.js';
 import CExtraInfos from './customer/extra_infos.js';
 import Quotes from './quotes.js';

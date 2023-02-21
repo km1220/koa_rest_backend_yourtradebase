@@ -1,5 +1,5 @@
 import Router from 'koa-router';
-import * as ReminderModel from '../models/reminders.js';
+import * as ReminderModel from '../../models/user/reminders.js';
 
 const router = new Router({
 	prefix: '/reminders'

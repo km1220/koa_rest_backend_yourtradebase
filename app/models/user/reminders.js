@@ -1,4 +1,4 @@
-import { query } from '../lib/mysqldb.js';
+import { query } from '../../lib/mysqldb.js';
 
 
 export const getAll = async () => {
@@ -6,7 +6,7 @@ export const getAll = async () => {
 }
 
 export const getReminderById = async (id) => {
-	const result = await query(`SELECT * FROM reminders WHERE reminders.id='${id}'`);
+	const result = await query(`SELECT * FROM reminders WHERE reminders.user_id='${id}'`);
 	if (result[0]) {
 		return result[0];
 	}
@@ -34,7 +34,7 @@ export const update = async (reminders) => {
 					\`summary_daily_email\`='${summary_daily_email ? 1 : 0}', 
 					\`summary_weekly_email\`='${summary_weekly_email ? 1 : 0}', 
 					\`all_unsubscribe\`='${all_unsubscribe ? 1 : 0}'
-				WHERE reminders.id=${id}
+				WHERE reminders.user_id=${id}
 			`);
 	} else {
 		return false;
@@ -42,5 +42,5 @@ export const update = async (reminders) => {
 }
 
 export const remove = async (id) => {
-	return await query(`DELETE FROM reminders WHERE reminders.id='${id}'`);
+	return await query(`DELETE FROM reminders WHERE reminders.user_id='${id}'`);
 }

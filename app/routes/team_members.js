@@ -6,7 +6,8 @@ const router = new Router({
 });
 
 router.get('/', async (ctx, next) => {
-	const allTeamMembers = await TeamMemberModel.getAll();
+	const params = ctx.request.query;
+	const allTeamMembers = await TeamMemberModel.getAll(params.user_id);
 	ctx.body = { team_members: allTeamMembers };
 	next();
 });

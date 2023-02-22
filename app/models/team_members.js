@@ -1,8 +1,8 @@
 import { query } from '../lib/mysqldb.js';
 
 
-export const getAll = async () => {
-	return await query("SELECT * FROM team_members");
+export const getAll = async (user_id) => {
+	return await query(`SELECT * FROM team_members WHERE team_members.user_id=${user_id}`);
 }
 
 export const getTeamMemberById = async (id) => {

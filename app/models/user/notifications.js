@@ -32,7 +32,7 @@ export const add = async (notifications) => {
 		INSERT INTO notifications (\`user_id\`, \`quote_accepted\`, \`online_payment_received\`, \`quote_reply_received\`, 
 									\`invoice_reply_received\`, \`job_reply_received\`, \`customer_reply_received\`, 
 									\`field_team_creates_a_note\`, \`field_team_uploads_a_file\`, \`field_team_captures_a_job_signature\`) 
-			VALUES ('${id}', ${quote_accepted}', '${online_payment_received}', '${quote_reply_received}', 
+			VALUES ('${id}', '${quote_accepted}', '${online_payment_received}', '${quote_reply_received}', 
 					'${invoice_reply_received}', '${job_reply_received}', '${customer_reply_received}', 
 					'${field_team_creates_a_note}', '${field_team_uploads_a_file}', '${field_team_captures_a_job_signature}')
 		`);

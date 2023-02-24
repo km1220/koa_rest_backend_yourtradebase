@@ -46,37 +46,6 @@ export const remove = async (id) => {
 }
 
 
-
-export const handleLogIn = async (data) => {
-	const result = await query(`SELECT * FROM user_profiles WHERE \`email\`='${data.email}'`);
-	if (result[0]) {
-		const userData = result[0];
-		if (userData.password === data.pwd) {
-			const updateLastLoginDate = await query(`UPDATE user_profiles SET \`last_login_at\`='${data.last_login_at}'WHERE user_profiles.id=${result[0].id}`);
-			return result[0];
-		}
-		else {
-			return { status: 'failed', message: 'Wrong password.' };
-		}
-	}
-	else {
-		return { status: 'failed', message: 'User not found.' };
-	}
-}
-export const handleSignUp = async (data) => {
-	const { name, email, password } = data;
-	const findResult = await query(`SELECT * FROM user_profiles WHERE \`email\`='${email}'`);
-	if (findResult[0]) {
-		return { status: 'failed', message: 'Already exist.' };
-	}
-	else {
-		let result = await query(`INSERT INTO user_profiles (\`name\`, \`email\`, \`password\`) VALUES ('${name}','${email}', '${password}')`);
-		const insertedUserData = await getUserProfileById(result.insertId);
-		return insertedUserData;
-	}
-}
-
-
 export const updatePassword = async ({ id, oldPwd, newPwd }) => {
 	const findResult = await query(`SELECT * FROM user_profiles WHERE \`id\`='${id}'`);
 	if (findResult[0] && findResult[0].password === oldPwd) {

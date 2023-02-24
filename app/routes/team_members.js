@@ -22,12 +22,12 @@ router.get('/:id', async (ctx, next) => {
 	next();
 })
 router.post('/', async (ctx, next) => {
-	const { name, email, initial_text, initial_color, role, permissions } = ctx.request.body;
+	const { user_id, name, email, initial_text, initial_color, role, permissions } = ctx.request.body;
 	if (!name) {
 		ctx.throw(400, 'Please enter data');
 	} else {
 		const result = await TeamMemberModel.add({
-			name, email, initial_text, initial_color, role, permissions
+			user_id, name, email, initial_text, initial_color, role, permissions
 		});
 		ctx.response.status = 201;
 		ctx.body = result;
@@ -35,12 +35,12 @@ router.post('/', async (ctx, next) => {
 	next();
 });
 router.put('/:id', async (ctx, next) => {
-	const { name, email, initial_text, initial_color, role, permissions } = ctx.request.body;
+	const { user_id, name, email, initial_text, initial_color, role, permissions } = ctx.request.body;
 	if (!name) {
 		ctx.throw(400, 'Please enter data');
 	} else {
 		const result = await TeamMemberModel.update({
-			id: ctx.params.id, name, email, initial_text, initial_color, role, permissions
+			id: ctx.params.id, user_id, name, email, initial_text, initial_color, role, permissions
 		});
 		ctx.response.status = 200;
 		ctx.body = result;

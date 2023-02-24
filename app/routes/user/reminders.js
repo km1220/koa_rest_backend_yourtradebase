@@ -20,11 +20,11 @@ router.get('/:id', async (ctx, next) => {
 	}
 	next();
 })
-router.post('/', async (ctx, next) => {
+router.post('/:id', async (ctx, next) => {
 	const { quote_unsent, quote_need_follow_up, invoice_unsent, invoice_overdue, summary_daily_email, summary_weekly_email, all_unsubscribe } = ctx.request.body;
 
 	const result = await ReminderModel.add({
-		quote_unsent, quote_need_follow_up, invoice_unsent, invoice_overdue, summary_daily_email, summary_weekly_email, all_unsubscribe
+		id: ctx.params.id, quote_unsent, quote_need_follow_up, invoice_unsent, invoice_overdue, summary_daily_email, summary_weekly_email, all_unsubscribe
 	});
 	ctx.response.status = 201;
 	ctx.body = result;

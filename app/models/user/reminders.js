@@ -15,15 +15,14 @@ export const getReminderById = async (id) => {
 
 
 export const add = async (reminders) => {
-	const { quote_unsent, quote_need_follow_up, invoice_unsent, invoice_overdue, summary_daily_email, summary_weekly_email, all_unsubscribe } = reminders;
+	const { id, quote_unsent, quote_need_follow_up, invoice_unsent, invoice_overdue, summary_daily_email, summary_weekly_email, all_unsubscribe } = reminders;
 	return await query(`
-		INSERT INTO reminders (\`quote_unsent\`, \`quote_need_follow_up\`, \`invoice_unsent\`, \`invoice_overdue\`, \`summary_daily_email\`, \`summary_weekly_email\`, \`all_unsubscribe\`) 
-			VALUES ('${quote_unsent}','${quote_need_follow_up}','${invoice_unsent}', '${invoice_overdue}', '${summary_daily_email}', '${summary_weekly_email}', '${all_unsubscribe}')
+		INSERT INTO reminders (\`user_id\`,\`quote_unsent\`, \`quote_need_follow_up\`, \`invoice_unsent\`, \`invoice_overdue\`, \`summary_daily_email\`, \`summary_weekly_email\`, \`all_unsubscribe\`) 
+			VALUES ('${id}', '${quote_unsent}', '${quote_need_follow_up}', '${invoice_unsent}', '${invoice_overdue}', '${summary_daily_email}', '${summary_weekly_email}', '${all_unsubscribe}')
 		`);
 }
 
 export const update = async (reminders) => {
-	console.log('reminders', reminders)
 	const { id, quote_unsent, quote_need_follow_up, invoice_unsent, invoice_overdue, summary_daily_email, summary_weekly_email, all_unsubscribe } = reminders;
 	const isTargetExist = await getReminderById(id);
 	if (isTargetExist !== null) {

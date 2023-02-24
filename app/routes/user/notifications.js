@@ -20,7 +20,7 @@ router.get('/:id', async (ctx, next) => {
 	}
 	next();
 })
-router.post('/', async (ctx, next) => {
+router.post('/:id', async (ctx, next) => {
 	const {
 		quote_accepted, online_payment_received, quote_reply_received,
 		invoice_reply_received, job_reply_received, customer_reply_received,
@@ -30,7 +30,7 @@ router.post('/', async (ctx, next) => {
 		ctx.throw(400, 'Please enter data');
 	} else {
 		const result = await NotificationModel.add({
-			quote_accepted, online_payment_received, quote_reply_received,
+			id: ctx.params.id, quote_accepted, online_payment_received, quote_reply_received,
 			invoice_reply_received, job_reply_received, customer_reply_received,
 			field_team_creates_a_note, field_team_uploads_a_file, field_team_captures_a_job_signature
 		});

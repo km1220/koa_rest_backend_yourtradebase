@@ -12,6 +12,8 @@ import Customers from './customer/customers.js';
 import CExtraInfos from './customer/extra_infos.js';
 
 import Quotes from './quotes.js';
+import Invoices from './invoices.js';
+import Jobs from './jobs.js';
 import Tasks from './tasks.js';
 import TeamMembers from './team_members.js';
 
@@ -36,6 +38,8 @@ export default app => {
 	app.use(CExtraInfos);
 
 	app.use(Quotes);
+	app.use(Invoices);
+	app.use(Jobs);
 	app.use(Tasks);
 	app.use(TeamMembers);
 
